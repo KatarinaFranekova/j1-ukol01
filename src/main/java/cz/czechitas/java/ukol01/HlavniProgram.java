@@ -61,8 +61,9 @@ public class HlavniProgram {
         zofka.turnRight(90);
         zofka.penDown();
 
-        for (int d = 0; d < 5; d++)
-        nakresliDomcek(zofka);
+        for (int i = 0; i < 5; i++) {
+            nakresliDomcek(zofka);
+        }
 
         //presun dole, dolava
         zofka.turnRight(180);
@@ -125,6 +126,10 @@ public class HlavniProgram {
 
   pismenoK(zofka);
   pismenoA(zofka);
+
+  zofka.setLocation(160, 70);
+  nakresliKruh(zofka);
+  nakresliPaprsky(zofka);
 
 
  }
@@ -195,7 +200,7 @@ public class HlavniProgram {
    }
 
     private static void nakresliDomcek(Turtle zofka) {
-            for (int k = 0; k < 4; k++) {
+            for (int i = 0; i < 4; i++) {
                 zofka.move(100);
                 zofka.turnRight(90);
             }
@@ -221,16 +226,32 @@ public class HlavniProgram {
         }
 
 
-   private static void nakresliKruh(Turtle zofka) {
-        for (int z = 0; z <12; z++) {
+    private void nakresliKruh(Turtle zofka) {
+        zofka.penDown();
+        for (int i = 0; i < 10; i++) {
             zofka.turnLeft(36);
             zofka.move(30);
+        }
+        zofka.penUp();
+    }
+
+    private void nakresliPaprsky(Turtle zofka) {
+        zofka.penUp();
+        for (int z = 0; z < 10; z++) {
+            zofka.turnRight(90 - 36d / 2);
             zofka.penDown();
+            zofka.move(30);
+            zofka.penUp();
+            zofka.turnLeft(180);
+            zofka.move(30);
+            zofka.turnRight(90 + 36d / 2);
+            zofka.turnLeft(36);
+            zofka.move(30);
         }
     }
 
     private static void nakresli8uholnik(Turtle zofka) {
-        for (int x = 0; x <8; x++) {
+        for (int i = 0; i <8; i++) {
 
             zofka.turnRight(45);
             zofka.penDown();
